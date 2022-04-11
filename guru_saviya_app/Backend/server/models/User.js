@@ -2,27 +2,24 @@ const mongoose =require('mongoose');
 
 //User schema
 const UserSchema = new mongoose.Schema({
-    username:{
-        type:String,
-        required: true,
-        min:3,
-        max:15,
-        unique: false,
-    },
-    email:{
-        type:String,
-        required: true,
-        max:50,
-        unique: true,
-    },
-    password:{
-        type:String,
-        required: true,
-        min:8,
-        max:50,
-    },
+    name: {
+        type: String,
+        required: true
+      },
+      email: {
+        type: String,
+        required: true
+      },
+      password: {
+        type: String,
+        required: true
+      },
+      date: {
+        type: Date,
+        default: Date.now
+      }
 }, 
-{timestamps:true},
+
 );
 
 const Userdb = mongoose.model('userdb', UserSchema);

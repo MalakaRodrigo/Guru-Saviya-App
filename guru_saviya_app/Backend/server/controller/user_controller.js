@@ -1,4 +1,4 @@
-var Userdb = require('../models/User');
+var User = require('../models/User');
 
 //create and save new user
 exports.create = (req, res)=>{
@@ -7,8 +7,8 @@ exports.create = (req, res)=>{
         return;
     }
     //new user
-  const user = new Userdb({
-        username: req.body.username,
+  const user = new User({
+        name: req.body.name,
         email: req.body.email,
         password: req.body.password,
     })
@@ -25,7 +25,7 @@ exports.create = (req, res)=>{
 //retrieve all users/ single user
 exports.find =(req, res)=>{
     res.send('Hello');
-   // Userdb.find().then(users =>res.json(users)).catch(err =>res.status(404).json({user: 'No user is found'}))
+   // User.find().then(users =>res.json(users)).catch(err =>res.status(404).json({user: 'No user is found'}))
 }
 //update a new identified user by user id
 exports.update =(req, res)=>{
